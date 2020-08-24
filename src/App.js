@@ -1,26 +1,18 @@
+// @flow
 import React from 'react';
-import logo from './logo.svg';
+import { Provider } from 'react-redux';
+import store from './redux/store';
 import css from './App.module.scss';
+import CounterContainer from './components/CounterContainer';
 
-function App() {
+const App = (): React$Element<*> => {
   return (
-    <div className={css["App"]}>
-      <header className={css["App-header"]}>
-        <img src={logo} className={css["App-logo"]} alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className={css["App-link"]}
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Provider store={store}>
+      <div className={css['App']}>
+        <CounterContainer />
+      </div>
+    </Provider>
   );
-}
+};
 
 export default App;
